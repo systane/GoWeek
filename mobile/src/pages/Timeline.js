@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import socket from 'socket.io-client';
 import { 
     View, 
     Text,
@@ -32,9 +33,26 @@ export default class Timeline extends Component {
     };
 
     async componentDidMount(){
+        this.subscribeToEvents();
+
         const response = await api.get("tweets");
 
         this.setState({tweets: response.data});
+    };
+
+    subscribeToEvents = () =>{
+        const io = socket('http://10.0.3.2:3000');
+
+        io.on('tweet', data => {
+            this.setState({tweets: [data, ...this.state.tweets]}); //... sinal do spread operator do ES6
+        });
+
+
+        io.on('like', data => {
+            this.setState({tweets: this.state.tweets.map(tweet =>(
+                tweet._id === data._id ? data : tweet
+            ))})
+        });
     }
 
 
