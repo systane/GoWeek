@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-
-import { 
-    View, 
-    Text, 
-    TextInput, 
-    TouchableOpacity, 
+import Icon from 'react-native-vector-icons/FontAwesome';
+import {StackActions, NavigationActions} from 'react-navigation';
+import {
+    View,
+    Text,
+    TextInput,
+    TouchableOpacity,
     StyleSheet,
-    KeyboardAvoidingView 
+    KeyboardAvoidingView,
+    AsyncStorage
 } from 'react-native';
 
 export default class Login extends Component {
@@ -16,26 +18,54 @@ export default class Login extends Component {
 
     state = {
         username: '',
+    };
+
+    async componentDidMount(){
+        const{username} = await AsyncStorage.getItem('username');
+ 
+        if(username){
+            this.navigateToTimeline();
+        }
     }
 
-    handleInputChange = (username) =>{
-        this.setState(username);
+    handleLogin = async () => {
+        const {username} = this.state;
+
+        if(!username.length) return;
+
+        await AsyncStorage.setItem('username', username);
+
+        this.navigateToTimeline();
+    };
+
+    //Recria o fluxo de navegação como se a única rote que o usuário acessou tenha sido a Timeline
+    navigateToTimeline = () => {
+        const resetAction = StackActions.reset({
+            index: 0,
+            actions: [NavigationActions.navigate({routeName: 'Timeline'})]
+        });
+
+        this.props.navigation.dispatch(resetAction);
     }
 
-    handleLogin = () =>{
-
-    }
-
+    handleInputChange = (username) => {
+        this.setState({username});
+    };
 
     render() {
         return (
             <View style={styles.container}>
                 <KeyboardAvoidingView style={styles.content} behavior="padding">
+                    <View>
+                        <Icon name="twitter" size={64} color="#4BB0EE" />
+                    </View>
                     <TextInput
                         style={styles.input}
                         placeholder="Nome de usuário"
                         value={this.state.username}
                         onChangeText={this.handleInputChange}
+                        returnKeyType="send"
+                        onSubmitEditing={this.handleLogin}
                     />
                     <TouchableOpacity style={styles.button} onPress={this.handleLogin}>
                         <Text style={styles.buttonText}>Entrar</Text>
@@ -48,41 +78,40 @@ export default class Login extends Component {
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      backgroundColor: "#FFF"
+        flex: 1,
+        backgroundColor: "#FFF"
     },
-  
+
     content: {
-      flex: 1,
-      justifyContent: "center",
-      alignItems: "center",
-      padding: 30
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        padding: 30
     },
-  
+
     input: {
-      borderWidth: 1,
-      borderColor: "#DDD",
-      borderRadius: 5,
-      height: 44,
-      paddingHorizontal: 15,
-      alignSelf: "stretch",
-      marginTop: 30
+        borderWidth: 1,
+        borderColor: "#DDD",
+        borderRadius: 5,
+        height: 44,
+        paddingHorizontal: 15,
+        alignSelf: "stretch",
+        marginTop: 30
     },
-  
+
     button: {
-      height: 44,
-      alignSelf: "stretch",
-      marginTop: 10,
-      backgroundColor: "#4BB0EE",
-      borderRadius: 5,
-      justifyContent: "center",
-      alignItems: "center"
+        height: 44,
+        alignSelf: "stretch",
+        marginTop: 10,
+        backgroundColor: "#4BB0EE",
+        borderRadius: 5,
+        justifyContent: "center",
+        alignItems: "center"
     },
-  
+
     buttonText: {
-      color: "#FFF",
-      fontSize: 16,
-      fontWeight: "bold"
+        color: "#FFF",
+        fontSize: 16,
+        fontWeight: "bold"
     }
-  });
-  
+});
