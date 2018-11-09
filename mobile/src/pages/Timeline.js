@@ -13,10 +13,10 @@ import api from '../services/api';
 import Tweet from '../components/Tweet';
 
 export default class Timeline extends Component {
-    static navigationOptions = {
+    static navigationOptions = ({navigation}) => ({
         title: "inicio",
         headerRight:(
-            <TouchableOpacity onPress={() => {}}>
+            <TouchableOpacity onPress={() => navigation.navigate('New')}>
                 <Icon
                     style={{marginRight: 20}}
                     name="add-circle-outline"
@@ -25,7 +25,7 @@ export default class Timeline extends Component {
                 />
             </TouchableOpacity>
         ),
-    };
+    });
  
     state = {
         tweets: []
