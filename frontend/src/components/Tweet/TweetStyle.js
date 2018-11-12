@@ -8,7 +8,7 @@ const TweetWrapper = styled.li`
     border-top: 1px solid #eee;
 
 
-    ${TweetWrapper}:first-child {
+    &:first-child {
         margin-top: 0;
         padding-top: 0;
         border: 0;
