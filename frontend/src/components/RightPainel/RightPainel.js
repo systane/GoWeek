@@ -21,7 +21,7 @@ export default class RightPainel extends Component {
                 </Grid>
                 <h1>Veja o que está acontecendo no mundo agora</h1>
                 <h2>Participe hoje do Twitter.</h2>
-                {/* <Link>Inscreva-se</Link> */}
+                {/* <Link>Inscreva-se</Link> */} 
                 <Link to="/Login">Entrar</Link>
             </RightPainelWrapper>
         );
