@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import like from '../../like.svg';
+import like from '../../assets/like.svg';
 import TweetWrapper from './TweetStyle.js';
 import api from '../../services/api';
 

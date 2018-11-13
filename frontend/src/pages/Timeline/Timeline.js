@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import api from '../../services/api';
 import socket from 'socket.io-client';
 
-import twitterLogo from '../../twitter.svg';
+import twitterLogo from '../../assets/twitter.svg';
 import TimelineWrapper from './TimelineStyle';
 
 import Tweet from '../../components/Tweet/Tweet';

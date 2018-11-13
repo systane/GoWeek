@@ -3,7 +3,7 @@ import {FaSistrix} from 'react-icons/fa';
 import {FiMessageCircle} from 'react-icons/fi';
 import SidePainelWrapper from './SidePainelStyle';
 import People from '@material-ui/icons/PeopleOutline'
-import Twitter from '../../twitter-logo.png';
+import Twitter from '../../assets/twitter-logo.png';
 
 export default class SidePainel extends Component {
     render() {
