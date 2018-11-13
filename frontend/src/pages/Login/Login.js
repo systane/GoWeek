@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-import twitterLogo from '../../twitter.svg';
+import twitterLogo from '../../assets/twitter.svg';
 import FormLoginWrapper from './LoginFormStyle'
 
 
