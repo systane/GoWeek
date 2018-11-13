@@ -11,7 +11,7 @@ export default class SidePainel extends Component {
             <SidePainelWrapper>
                 <img src={Twitter} alt="twitter"/>
                 <div>
-                    <span className={FaSistrix}>
+                    <span>
                         <FaSistrix color={'#ffffff'} style={{marginRight: 10}} size={30}/> Siga o que lhe interessa.
                     </span>
                 </div>
