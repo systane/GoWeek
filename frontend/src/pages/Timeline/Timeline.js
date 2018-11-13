@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import api from '../services/api';
+import api from '../../services/api';
 import socket from 'socket.io-client';
 
-import twitterLogo from '../twitter.svg';
-import './Timeline.css';
+import twitterLogo from '../../twitter.svg';
+import TimelineWrapper from './TimelineStyle';
 
-import Tweet from '../components/Tweet';
+import Tweet from '../../components/Tweet/Tweet';
 
 export default class Timeline extends Component {
     constructor() {
@@ -57,7 +57,7 @@ export default class Timeline extends Component {
 
     render() {
         return (
-            <div className="timeline-wrapper">
+            <TimelineWrapper>
                 <img height={24} src={twitterLogo} alt="GoTwitter}" />
                 <form>
                     <textarea
@@ -73,7 +73,7 @@ export default class Timeline extends Component {
                         ))
                     }
                 </ul>
-            </div>
+            </TimelineWrapper>
         );
     }
 }
