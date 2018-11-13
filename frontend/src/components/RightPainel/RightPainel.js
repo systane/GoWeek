@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import twitterLogo from '../../twitter.svg';
-import { Link } from 'react-router-dom';
 import {RightPainelWrapper, LoginLinkStyled} from './RightPainelStyle';
 import Grid from '@material-ui/core/Grid';
 
