@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import twitterLogo from '../../twitter.svg';
-import {RightPainelWrapper, LoginLinkStyled} from './RightPainelStyle';
+import {RightPainelWrapper, LoginLinkStyled, SubscriveLinkStyled} from './RightPainelStyle';
 import Grid from '@material-ui/core/Grid';
 
 export default class RightPainel extends Component {
@@ -22,7 +22,7 @@ export default class RightPainel extends Component {
                 </Grid>
                 <h1>Veja o que está acontecendo no mundo agora</h1>
                 <h2>Participe hoje do Twitter.</h2>
-                {/* <Link>Inscreva-se</Link> */}
+                <SubscriveLinkStyled to="/">Inscreva-se</SubscriveLinkStyled>
                 <LoginLinkStyled to="/Login">Entrar</LoginLinkStyled>
             </RightPainelWrapper>
         );

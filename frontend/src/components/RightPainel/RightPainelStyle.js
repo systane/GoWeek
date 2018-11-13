@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-const LoginLinkStyled = styled(Link)`
+const SubscriveLinkStyled = styled(Link)`
+   
+    &:hover, &:visited, &:link, &:active{
+        text-decoration: none !important;
+    }
 
     border-radius: 100px;
     box-shadow: none;
@@ -13,7 +17,43 @@ const LoginLinkStyled = styled(Link)`
     position: relative;
     text-align: center;
     white-space: nowrap;
+    background-color: #1da1f2;
+    border: 1px solid #1da1f2;
+    color: white;
+    margin-bottom: 5px;
 
+    &:hover{
+        background-color: #63ADFF;
+    }
+
+   
+
+    &:active{       
+        background-color: #2972FF;
+        color: white;
+    }
+
+    &:focus{
+        border: 5px double #1da1f2;
+    }
+`;
+
+const LoginLinkStyled = styled(Link)`
+
+     &:hover, &:visited, &:link, &:active{
+        text-decoration: none !important;
+    }
+
+    border-radius: 100px;
+    box-shadow: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 20px;
+    padding: 6px 16px;
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
     background-color: #fff;
     border: 1px solid #1da1f2;
     color: #1da1f2;
@@ -22,13 +62,15 @@ const LoginLinkStyled = styled(Link)`
         background-color: #E2FFFF;
     }
 
-    &:hover, &:visited, &:link, &:active{
-        text-decoration: none !important;
+   
+
+    &:active{       
+        background-color: #2972FF;
+        color: white;
     }
 
-    &:active{
-        border: 1px solid #2972FF;
-        color: #2972FF;
+    &:focus{
+        border: 5px double #1da1f2;
     }
 `;
 
@@ -63,4 +105,4 @@ const RightPainelWrapper = styled.div`
     }
 `;
 
-export {RightPainelWrapper, LoginLinkStyled};
+export {RightPainelWrapper, LoginLinkStyled, SubscriveLinkStyled};
