@@ -1,8 +1,8 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-const LoginLinkWrapper = styled.a`
+const LoginLinkStyled = styled(Link)`
 
-    text-decoration: none !important;
     border-radius: 100px;
     box-shadow: none;
     cursor: pointer;
@@ -24,6 +24,11 @@ const LoginLinkWrapper = styled.a`
 
     &:hover, &:visited, &:link, &:active{
         text-decoration: none !important;
+    }
+
+    &:active{
+        border: 1px solid #2972FF;
+        color: #2972FF;
     }
 `;
 
@@ -58,4 +63,4 @@ const RightPainelWrapper = styled.div`
     }
 `;
 
-export {RightPainelWrapper, LoginLinkWrapper};
+export {RightPainelWrapper, LoginLinkStyled};
