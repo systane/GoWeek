@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import twitterLogo from '../../assets/twitter-logo.png';
+import twitterLogo from '../../assets/twitter.svg';
 import {RightPainelWrapper, LoginLinkStyled, SubscriveLinkStyled} from './RightPainelStyle';
 import Grid from '@material-ui/core/Grid';
 
