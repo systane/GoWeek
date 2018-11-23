@@ -56,4 +56,4 @@ UserSchema.methods.comparePassword = function(candidatePassword, cb) {
     });
 };
 
-module.exports = mongoose.model('User', UserSchema);//Exporta o model criado (TweetSchema)
+module.exports = mongoose.model('User', UserSchema);
